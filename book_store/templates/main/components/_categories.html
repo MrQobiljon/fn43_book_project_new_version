@@ -1,0 +1,7 @@
+{% for category in categories %}
+<li class="category-item">
+    <a href="{% url 'by_category' category.pk %}">
+        {{ category.name }} <span>({{ category.count_books }})</span>
+    </a>
+</li>
+{% endfor %}

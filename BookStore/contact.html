@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bog'lanish | LIBERTY</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header-footer.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg main-navbar">
+      <div class="container">
+        <a class="navbar-brand fw-bold tracking-wide" href="index.html">LIBERTY.</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active fw-bold" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="book-form.html" class="nav-link"><i class="fa-solid fa-plus"></i> Yangi kitob</a>
+            <a href="auth.html" class="nav-link"><i class="fa-regular fa-user"></i> Kabinet</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Hero Title -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">Aloqa va Konsultatsiya</h1>
+      <p class="page-hero-subtitle">Korporativ buyurtmalar, hamkorlik takliflari yoki savollaringiz bo'yicha to'g'ridan-to'g'ri aloqaga chiqing.</p>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="container mb-5">
+    <div class="row g-5">
+      
+      <!-- Chap tomon: Aloqa Formasi -->
+      <div class="col-lg-7">
+        <div class="contact-form-box">
+          <h4 class="fw-bold text-slate-900 mb-4">Xabar Yuborish</h4>
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">To'liq ismingiz</label>
+                <input type="text" class="form-control" placeholder="F.I.SH">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Elektron pochta</label>
+                <input type="email" class="form-control" placeholder="pochta@domen.uz">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mavzu</label>
+                <input type="text" class="form-control" placeholder="Masalan: Korporativ xarid bo'yicha">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Xabar matni</label>
+                <textarea class="form-control" rows="5" placeholder="Taklif yoki savolingizni batafsil yozing..."></textarea>
+              </div>
+              <div class="col-12 mt-4">
+                <button type="submit" class="custom-btn-primary">
+                  <i class="fa-regular fa-paper-plane me-2"></i>Xabarni yuborish
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- O'ng tomon: Aloqa Rekvizitlari -->
+      <div class="col-lg-5">
+        <div class="contact-info-list">
+          
+          <div class="contact-item-card">
+            <div class="contact-item-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-item-content">
+              <h6>Bosh Ofis</h6>
+              <p>Toshkent shahri, Mirobod tumani, Amir Temur shoh ko'chasi, 107B</p>
+              <small>Biznes Markaz, 4-qavat</small>
+            </div>
+          </div>
+
+          <div class="contact-item-card">
+            <div class="contact-item-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-item-content">
+              <h6>Aloqa Telefoni</h6>
+              <p>+998 (71) 200-00-00</p>
+              <small>Dush - Shan: 09:00 - 19:00</small>
+            </div>
+          </div>
+
+          <div class="contact-item-card">
+            <div class="contact-item-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-item-content">
+              <h6>Elektron Manzil</h6>
+              <p>support@libertybooks.uz</p>
+              <small>b2b@libertybooks.uz (Hamkorlik uchun)</small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Xarita Qismi (Monoxrom uslubda) -->
+    <div class="map-frame-box">
+      <iframe 
+        src="https://maps.google.com/maps?q=Tashkent%20Amir%20Temur&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="text-center small">
+        &copy; 2026 LIBERTY Bookstore. Barcha huquqlar himoyalangan.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

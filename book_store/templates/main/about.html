@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/pages.css' %}">
+{% endblock style %}
+
+
+{% block hero %}
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero-title">Intellektual Manbalar va Biznes Standartlari</h1>
+      <p class="page-hero-subtitle">Biznes egalari, boshqaruvchilar va mustaqil tahlilchilar uchun fundamental adabiyotlar ekotizimi.</p>
+    </div>
+  </section>
+{% endblock hero %}
+
+
+{% block main %}
+  <main class="container mb-5">
+    
+    <!-- Asosiy Missiya -->
+    <div class="statement-box">
+      <p class="statement-text">
+        "LIBERTY" do'koni ommaviy axborot shovqinidan xoli bo'lgan, faqat vaqt sinovidan o'tgan, nazariy va amaliy jihatdan qimmatli asarlarni bir nuqtada jamlaydi. Biz kitobni shunchaki mahsulot emas, balki strategik qarorlar qabul qilishdagi intellektual instrument deb bilamiz.
+      </p>
+    </div>
+
+    <!-- 3 ta Asosiy Qadriyat -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-4">
+        <div class="value-card">
+          <div class="value-icon-wrapper">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h3 class="value-title">Qat'iy Saralash</h3>
+          <p class="value-desc">Katalogimizga har bir kitob ilmiy asoslanganlik va amaliy qiymat mezonlari bo'yicha saralanib kiritiladi.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="value-card">
+          <div class="value-icon-wrapper">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h3 class="value-title">Sifatli Nashrlar</h3>
+          <p class="value-desc">Kitoblarimiz yuqori darajadagi poligrafiya, sifatli muqova va professional tarjimalarda taqdim etiladi.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="value-card">
+          <div class="value-icon-wrapper">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <h3 class="value-title">To'g'ridan-to'g'ri Hamkorlik</h3>
+          <p class="value-desc">Xalqaro va mahalliy yetakchi nashriyotlar bilan litsenziyalangan to'g'ridan-to'g'ri shartnomalar.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Korporativ Ko'rsatkichlar (Stats) -->
+    <div class="stats-container">
+      <div class="row gy-4">
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">12,000+</div>
+          <div class="stat-label">Doimiy mijozlar</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">450+</div>
+          <div class="stat-label">Biznes asarlar</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Asl nashr kafolati</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Konsultativ xizmat</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+{% endblock %}

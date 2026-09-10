@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock %}
+
+
+{% block header %}
+  <nav class="navbar navbar-expand-lg main-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="{% url 'all_books' %}">LIBERTY.</a>
+    </div>
+  </nav>
+{% endblock header %}
+
+
+{% block main %}
+  <main class="container my-5" style="max-width: 700px;">
+    <div class="bg-white p-5 border">
+      <h3 class="fw-bold mb-4">Kitob Ma'lumotlarini Kiritish</h3>
+      
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Kitob nomi</label>
+<!--          <input type="text" class="form-control" name="title">-->
+          {{ form.title }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Kategoriya</label>
+          {{ form.category }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Narxi (UZS)</label>
+          {{ form.price }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Kitob Muqovasi (URL yoki Fayl)</label>
+          {{ form.image }}
+        </div>
+        <div class="mb-4">
+          <label class="form-label small fw-bold">Qisqacha tavsif</label>
+          {{ form.introduction }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Saytga chiqarish:</label>
+          {{ form.published }}
+        </div>
+        
+        <div class="d-flex justify-content-between">
+          <div>
+            <button type="submit" class="custom-btn-primary me-2">
+              {% if request.path == '/book/add/' %}
+              Saqlash
+              {% else %}
+              O'zgartirish
+              {% endif %}
+            </button>
+            <a href="{% url 'all_books' %}" class="btn btn-outline-secondary">Bekor qilish</a>
+          </div>
+          <button type="reset" class="custom-btn-danger"><i class="fa-solid fa-trash me-2"></i>Kitobni o'chirish</button>
+        </div>
+      </form>
+    </div>
+  </main>
+{% endblock main %}

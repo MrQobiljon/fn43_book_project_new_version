@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+  <main class="container my-5">
+    <div class="row justify-content-center g-5">
+
+      {% if request.path == "/user/login/" %}
+      <div class="col-md-5">
+        <div class="bg-white p-4 border h-100">
+          <h4 class="fw-bold mb-4">Tizimga kirish</h4>
+          <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Username</label>
+<!--              <input type="email" class="form-control" name="login_email">-->
+              {{ user_form.username.errors }}
+              {{ user_form.username }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small fw-bold">Parol</label>
+<!--              <input type="password" class="form-control" name="login_password">-->
+              {{ user_form.password.errors }}
+              {{ user_form.password }}
+            </div>
+            <button type="submit" class="custom-btn-primary w-100">Kirish</button>
+          </form>
+          <h6 class="fw-bold mb-4 mt-5">
+            <a href="{% url 'register' %}">Ro'yxatdan o'tish</a>
+          </h6>
+        </div>
+      </div>
+
+      {% else %}
+
+      <div class="col-md-5">
+        <div class="bg-white p-4 border h-100">
+          <h4 class="fw-bold mb-4">Ro'yxatdan o'tish</h4>
+          <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Username</label>
+<!--              <input type="text" class="form-control" name="reg_name">-->
+              {{ register_form.username }}
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Elektron pochta</label>
+<!--              <input type="email" class="form-control" name="reg_email">-->
+              {{ register_form.email }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small fw-bold">Yangi parol</label>
+<!--              <input type="password" class="form-control" name="reg_password">-->
+              {{ register_form.password1 }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small fw-bold">Parolni takrorlang</label>
+<!--              <input type="password" class="form-control" name="reg_password">-->
+              {{ register_form.password2 }}
+            </div>
+            <button type="submit" class="custom-btn-primary w-100">Akkaunt yaratish</button>
+          </form>
+          <h6 class="fw-bold mb-4 mt-5">
+            <a href="{% url 'login' %}">Tizimga kirish</a>
+          </h6>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </main>
+{% endblock main %}
+

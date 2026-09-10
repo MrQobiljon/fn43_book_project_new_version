@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+            Liberty
+        {% endblock title %}
+    </title>
+
+    {% include 'components/_styles.html' %}
+
+    {% block style %}
+    {% endblock style %}
+
+</head>
+<body>
+
+<header class="site-header">
+    {% block header %}
+        {% include 'components/_nav.html' %}
+
+        {% block hero %}
+        {% endblock hero %}
+    {% endblock header %}
+</header>
+
+{% block main %}
+{% endblock main %}
+
+<footer class="site-footer">
+    {% block footer %}
+        <div class="container text-center small">&copy; 2026 LIBERTY Bookstore.</div>
+    {% endblock footer %}
+</footer>
+
+{% block script %}
+{% endblock script %}
+
+</body>
+</html>

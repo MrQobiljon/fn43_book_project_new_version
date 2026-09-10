@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{{ block.super }}: {{ title }}
+{% endblock title %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+<link rel="stylesheet" href="{% static 'css/cards.css' %}">
+{% endblock %}
+
+
+{% block hero %}
+<div class="hero-carousel-container">
+      <div class="carousel-slide active">
+        <img src="https://images.unsplash.com/photo-1507842229451-7f01be837453?auto=format&fit=crop&w=1600&q=80" alt="Slide 1">
+        <div class="carousel-caption">
+          <h2 class="display-6 fw-bold mb-3">Klassik va Zamonaviy Adabiyotlar</h2>
+          <p>Dunyoqarashingizni kengaytiruvchi eng sara biznes va badiiy asarlar to'plami.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80" alt="Slide 2">
+        <div class="carousel-caption">
+          <h2 class="display-6 fw-bold mb-3">Biznes va Iqtisodiyot</h2>
+          <p>Moliyaviy erkinlik, strategiya va boshqaruv bo'yicha fundamental manbalar.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1600&q=80" alt="Slide 3">
+        <div class="carousel-caption">
+          <h2 class="display-6 fw-bold mb-3">Shaxsiy Rivojlanish</h2>
+          <p>Intellektual salohiyatingizni yuksaltiruvchi eksklyuziv nashrlar.</p>
+        </div>
+      </div>
+    </div>
+{% endblock hero %}
+
+
+{% block main %}
+<main class="container my-5">
+    <div class="row g-4">
+
+      <aside class="col-lg-3">
+        <div class="filter-sidebar">
+          <div class="sidebar-title">Kategoriyalar</div>
+          <ul class="category-list">
+            {% include 'main/components/_categories.html' %}
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-lg-9">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+          {% for book in books %}
+            {% include 'main/components/_book.html' %}
+          {% endfor %}
+
+        </div>
+
+        {% include 'main/components/_pagination.html' %}
+
+      </section>
+
+    </div>
+  </main>
+{% endblock main %}
+
+
+{% block footer %}
+<div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="text-white mb-3">LIBERTY.</h5>
+          <p class="small">Yuqori sifatli nashrlar, tahliliy adabiyotlar va professional kitobxonlar markazi.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-white mb-3">Havolalar</h6>
+          <ul class="list-unstyled small">
+            <li><a href="index.html">Bosh sahifa</a></li>
+            <li><a href="about.html">Biz haqimizda</a></li>
+            <li><a href="contact.html">Bog'lanish</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-white mb-3">Aloqa</h6>
+          <p class="small mb-1"><i class="fa-solid fa-location-dot me-2"></i> Toshkent, Amir Temur shoh ko'chasi</p>
+          <p class="small"><i class="fa-solid fa-phone me-2"></i> +998 71 200 00 00</p>
+        </div>
+      </div>
+      <div class="text-center pt-4 mt-4 border-top border-secondary small">
+        &copy; 2026 LIBERTY Bookstore. Barcha huquqlar himoyalangan.
+      </div>
+    </div>
+{% endblock footer %}
+
+
+{% block script %}
+<script src="{% static 'js/carousel.js' %}"></script>
+{% endblock script %}

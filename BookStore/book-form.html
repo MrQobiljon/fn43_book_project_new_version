@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitob Boshqaruvi | LIBERTY</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header-footer.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg main-navbar">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">LIBERTY.</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5" style="max-width: 700px;">
+    <div class="bg-white p-5 border">
+      <h3 class="fw-bold mb-4">Kitob Ma'lumotlarini Kiritish</h3>
+      
+      <form>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Kitob nomi</label>
+          <input type="text" class="form-control" name="title">
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Muallif</label>
+          <input type="text" class="form-control" name="author">
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Kategoriya</label>
+          <select class="form-select" name="category">
+            <option>Biznes va Moliya</option>
+            <option>Falsafa va Mantiq</option>
+            <option>Jahon Adabiyoti</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Narxi (UZS)</label>
+          <input type="number" class="form-control" name="price">
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">Kitob Muqovasi (URL yoki Fayl)</label>
+          <input type="file" class="form-control" name="cover">
+        </div>
+        <div class="mb-4">
+          <label class="form-label small fw-bold">Qisqacha tavsif</label>
+          <textarea class="form-control" rows="4" name="description"></textarea>
+        </div>
+        
+        <div class="d-flex justify-content-between">
+          <div>
+            <button type="submit" class="custom-btn-primary me-2">Saqlash</button>
+            <a href="index.html" class="btn btn-outline-secondary">Bekor qilish</a>
+          </div>
+          <button type="button" class="custom-btn-danger"><i class="fa-solid fa-trash me-2"></i>Kitobni o'chirish</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-center small">&copy; 2026 LIBERTY Bookstore.</div>
+  </footer>
+
+</body>
+</html>

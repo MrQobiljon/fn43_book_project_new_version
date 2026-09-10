@@ -1,0 +1,218 @@
+/* ==========================================================================
+   ABOUT & CONTACT PAGES STYLING (css/pages.css)
+   ========================================================================== */
+
+/* Umumiy sahifa sarlavhalari (Banner) */
+.page-hero {
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  padding: 3.5rem 0;
+  margin-bottom: 3.5rem;
+}
+
+.page-hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-slate-900);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.page-hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-slate-700);
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   ABOUT SAHIFASI
+   ========================================== */
+
+/* Katta ta'kidlash iqtibosi (Mission Statement) */
+.statement-box {
+  background-color: #ffffff;
+  border-left: 3px solid var(--color-slate-900);
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 2.25rem;
+  margin-bottom: 3rem;
+}
+
+.statement-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-slate-900);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Qadriyatlar bloklari (Values Grid) */
+.value-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  padding: 2rem 1.75rem;
+  height: 100%;
+  transition: border-color 0.2s ease;
+}
+
+.value-card:hover {
+  border-color: var(--color-slate-700);
+}
+
+.value-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.value-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-slate-900);
+  margin-bottom: 0.5rem;
+}
+
+.value-desc {
+  font-size: 0.875rem;
+  color: var(--color-slate-700);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Raqamli statistika bloki (Key Metrics) */
+.stats-container {
+  background-color: var(--color-slate-900);
+  color: #ffffff;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+
+.stat-item {
+  text-align: center;
+  border-right: 1px solid var(--color-slate-800);
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-zinc-400);
+}
+
+/* ==========================================
+   CONTACT SAHIFASI
+   ========================================== */
+
+/* Aloqa formasi konteyneri */
+.contact-form-box {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  padding: 2.5rem;
+}
+
+.contact-form-box .form-label {
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-slate-700);
+  margin-bottom: 0.4rem;
+}
+
+.contact-form-box .form-control {
+  border-color: var(--color-border);
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-slate-900);
+}
+
+.contact-form-box .form-control:focus {
+  border-color: var(--color-slate-900);
+  box-shadow: none;
+}
+
+/* Aloqa ma'lumotlari ro'yxati (Sidebar) */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.contact-item-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.contact-item-content h6 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-zinc-400);
+  margin-bottom: 0.25rem;
+}
+
+.contact-item-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-slate-900);
+  line-height: 1.5;
+}
+
+.contact-item-content small {
+  color: var(--color-slate-700);
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* Interaktiv xarita ramkasi */
+.map-frame-box {
+  border: 1px solid var(--color-border);
+  margin-top: 2.5rem;
+  height: 360px;
+  background-color: var(--color-slate-100);
+}
+
+.map-frame-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(85%) contrast(1.1); /* Jiddiy, monoxrom ko'rinish beradi */
+}
