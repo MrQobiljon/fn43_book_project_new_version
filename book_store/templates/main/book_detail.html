@@ -51,6 +51,8 @@
                 Saqlab qo'yish
             </button>
 
+
+            {% if perms.main.change_book %}
             <a href="{% url 'book_update' book.pk %}"
                class="btn btn-outline-secondary btn-sm">
 
@@ -58,7 +60,9 @@
                 Tahrirlash
 
             </a>
+            {% endif %}
 
+            {% if perms.main.delete_book %}
             <a href="{% url 'book_delete' book.pk %}"
                class="btn btn-outline-secondary btn-sm">
 
@@ -66,6 +70,7 @@
                 O'chirish
 
             </a>
+            {% endif %}
 
         </div>
 

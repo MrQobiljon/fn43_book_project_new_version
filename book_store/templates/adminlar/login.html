@@ -1,0 +1,546 @@
+```html
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel | Kirish</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Heroicons -->
+    <script src="https://unpkg.com/@heroicons/vue@2.1.5/24/outline/index.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen bg-slate-950">
+
+<div class="min-h-screen flex">
+
+    <!-- LEFT SIDE -->
+    <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-br
+                    from-indigo-950 via-slate-900 to-slate-950">
+        </div>
+
+        <!-- Decorative circles -->
+        <div class="absolute -top-32 -left-32 w-96 h-96
+                    bg-indigo-600/20 rounded-full blur-3xl">
+        </div>
+
+        <div class="absolute -bottom-32 -right-32 w-96 h-96
+                    bg-violet-600/20 rounded-full blur-3xl">
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-center px-16 xl:px-24">
+
+            <div class="mb-8">
+
+                <!-- Logo -->
+                <div class="w-14 h-14 rounded-2xl
+                            bg-gradient-to-br from-indigo-500 to-violet-600
+                            flex items-center justify-center
+                            shadow-lg shadow-indigo-500/30">
+
+                    <!-- Shield icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.7"
+                         stroke="currentColor"
+                         class="w-7 h-7 text-white">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M9 12.75 11.25 15 15 9.75
+                                 M21 12c0 4.97-3.438 9.18-8.102 10.26
+                                 a1.5 1.5 0 0 1-.796 0
+                                 C7.438 21.18 4 16.97 4 12V5.5
+                                 a1.5 1.5 0 0 1 1.5-1.5
+                                 h13A1.5 1.5 0 0 1 20 5.5V12Z"/>
+                    </svg>
+                </div>
+
+            </div>
+
+            <h1 class="text-4xl xl:text-5xl font-bold
+                       text-white leading-tight">
+                Admin boshqaruv
+                <span class="block text-indigo-400">
+                    paneli
+                </span>
+            </h1>
+
+            <p class="mt-6 text-lg text-slate-400 max-w-lg leading-relaxed">
+                Tizimni boshqarish, ma'lumotlarni nazorat qilish
+                va administrator funksiyalaridan foydalanish uchun
+                hisobingizga kiring.
+            </p>
+
+            <!-- Features -->
+            <div class="mt-10 space-y-4">
+
+                <div class="flex items-center gap-3 text-slate-300">
+                    <div class="w-9 h-9 rounded-lg bg-white/5
+                                border border-white/10
+                                flex items-center justify-center">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.7"
+                             stroke="currentColor"
+                             class="w-5 h-5 text-indigo-400">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M9 12.75 11.25 15 15 9.75
+                                     M21 12c0 4.97-3.438 9.18-8.102 10.26
+                                     a1.5 1.5 0 0 1-.796 0
+                                     C7.438 21.18 4 16.97 4 12V5.5
+                                     A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5V12Z"/>
+                        </svg>
+                    </div>
+
+                    <span>Xavfsiz boshqaruv</span>
+                </div>
+
+                <div class="flex items-center gap-3 text-slate-300">
+                    <div class="w-9 h-9 rounded-lg bg-white/5
+                                border border-white/10
+                                flex items-center justify-center">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.7"
+                             stroke="currentColor"
+                             class="w-5 h-5 text-indigo-400">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M3 13.125 10.5 3v6.75H21L13.5 21v-6.75H3Z"/>
+                        </svg>
+
+                    </div>
+
+                    <span>Tezkor boshqaruv</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center
+                px-6 py-12 bg-slate-50">
+
+        <div class="w-full max-w-md">
+
+            <!-- Mobile logo -->
+            <div class="lg:hidden flex justify-center mb-8">
+
+                <div class="w-14 h-14 rounded-2xl
+                            bg-gradient-to-br from-indigo-500 to-violet-600
+                            flex items-center justify-center
+                            shadow-lg shadow-indigo-500/30">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.7"
+                         stroke="currentColor"
+                         class="w-7 h-7 text-white">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M9 12.75 11.25 15 15 9.75
+                                 M21 12c0 4.97-3.438 9.18-8.102 10.26
+                                 a1.5 1.5 0 0 1-.796 0
+                                 C7.438 21.18 4 16.97 4 12V5.5
+                                 A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5V12Z"/>
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <!-- Header -->
+            <div class="mb-8">
+
+                <h2 class="text-3xl font-bold text-slate-900">
+                    Xush kelibsiz
+                </h2>
+
+                <p class="mt-2 text-slate-500">
+                    Admin panelga kirish uchun ma'lumotlaringizni kiriting.
+                </p>
+
+            </div>
+
+
+            <!-- Errors -->
+            {% if form.errors and not form.non_field_errors %}
+                <div class="mb-6 rounded-xl border border-red-200
+                            bg-red-50 p-4">
+
+                    <div class="flex gap-3">
+
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.7"
+                             stroke="currentColor"
+                             class="w-5 h-5 text-red-500 shrink-0">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M12 9v3.75
+                                     M12 15.75h.008v.008H12v-.008Z
+                                     M10.34 3.94 2.56 17.25
+                                     A1.5 1.5 0 0 0 3.86 19.5h16.28
+                                     a1.5 1.5 0 0 0 1.3-2.25L13.66 3.94
+                                     a1.5 1.5 0 0 0-2.6 0Z"/>
+
+                        </svg>
+
+                        <p class="text-sm text-red-700">
+                            Foydalanuvchi nomi yoki parol noto'g'ri.
+                        </p>
+
+                    </div>
+
+                </div>
+            {% endif %}
+
+
+            {% if user.is_authenticated %}
+                <div class="mb-6 rounded-xl border border-amber-200
+                            bg-amber-50 p-4">
+
+                    <p class="text-sm text-amber-700">
+                        Sizda ushbu sahifaga kirish uchun kerakli
+                        ruxsat mavjud emas.
+                    </p>
+
+                </div>
+            {% endif %}
+
+
+            <!-- LOGIN FORM -->
+            <form method="post" action="{{ app_path }}" class="space-y-5">
+
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <div class="rounded-xl border border-red-200
+                                    bg-red-50 p-4 text-sm text-red-700">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+
+                <!-- Username -->
+                <div>
+
+                    <label for="id_username"
+                           class="block text-sm font-medium
+                                  text-slate-700 mb-2">
+
+                        Foydalanuvchi nomi
+
+                    </label>
+
+                    <div class="relative">
+
+                        <!-- User icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.7"
+                             stroke="currentColor"
+                             class="absolute left-4 top-1/2
+                                    -translate-y-1/2
+                                    w-5 h-5 text-slate-400">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0
+                                     3.75 3.75 0 0 1 7.5 0ZM4.5 20.118
+                                     a7.5 7.5 0 0 1 15 0
+                                     A17.933 17.933 0 0 1 12 21.75
+                                     a17.933 17.933 0 0 1-7.5-1.632Z"/>
+
+                        </svg>
+
+                        <input
+                            type="text"
+                            name="username"
+                            id="id_username"
+                            value="{{ form.username.value|default:'' }}"
+                            autocomplete="username"
+                            autofocus
+                            required
+
+                            placeholder="Foydalanuvchi nomi"
+
+                            class="w-full pl-12 pr-4 py-3.5
+                                   bg-white border border-slate-200
+                                   rounded-xl text-slate-900
+                                   placeholder:text-slate-400
+                                   outline-none
+
+                                   transition
+
+                                   focus:border-indigo-500
+                                   focus:ring-4
+                                   focus:ring-indigo-500/10
+
+                                   hover:border-slate-300"
+                        >
+
+                    </div>
+
+                    {% if form.username.errors %}
+                        <p class="mt-2 text-sm text-red-600">
+                            {{ form.username.errors|striptags }}
+                        </p>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Password -->
+                <div>
+
+                    <div class="flex items-center justify-between mb-2">
+
+                        <label for="id_password"
+                               class="block text-sm font-medium
+                                      text-slate-700">
+
+                            Parol
+
+                        </label>
+
+                        {% url 'admin_password_reset' as password_reset_url %}
+
+                        {% if password_reset_url %}
+                            <a href="{{ password_reset_url }}"
+                               class="text-sm font-medium
+                                      text-indigo-600
+                                      hover:text-indigo-700">
+                                Parolni unutdingizmi?
+                            </a>
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="relative">
+
+                        <!-- Lock icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke-width="1.7"
+                             stroke="currentColor"
+                             class="absolute left-4 top-1/2
+                                    -translate-y-1/2
+                                    w-5 h-5 text-slate-400">
+
+                            <path stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M16.5 10.5V6.75a4.5 4.5 0 0 0-9 0v3.75
+                                     m-.75 0h10.5A2.25 2.25 0 0 1 19.5 12.75v6
+                                     A2.25 2.25 0 0 1 17.25 21H6.75
+                                     A2.25 2.25 0 0 1 4.5 18.75v-6
+                                     A2.25 2.25 0 0 1 6.75 10.5Z"/>
+
+                        </svg>
+
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="id_password"
+                            autocomplete="current-password"
+                            required
+
+                            placeholder="Parolingizni kiriting"
+
+                            class="w-full pl-12 pr-4 py-3.5
+                                   bg-white border border-slate-200
+                                   rounded-xl text-slate-900
+                                   placeholder:text-slate-400
+                                   outline-none
+
+                                   transition
+
+                                   focus:border-indigo-500
+                                   focus:ring-4
+                                   focus:ring-indigo-500/10
+
+                                   hover:border-slate-300"
+                        >
+
+                    </div>
+
+                    {% if form.password.errors %}
+                        <p class="mt-2 text-sm text-red-600">
+                            {{ form.password.errors|striptags }}
+                        </p>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- Remember -->
+                <div class="flex items-center">
+
+                    <input
+                        type="checkbox"
+                        id="remember"
+                        name="remember"
+
+                        class="w-4 h-4 rounded
+                               border-slate-300
+                               text-indigo-600
+                               focus:ring-indigo-500"
+                    >
+
+                    <label for="remember"
+                           class="ml-2 text-sm text-slate-600">
+                        Ushbu qurilmada eslab qolish
+                    </label>
+
+                </div>
+
+
+                {% if next %}
+                    <input type="hidden"
+                           name="next"
+                           value="{{ next }}">
+                {% endif %}
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+
+                    class="w-full flex items-center
+                           justify-center gap-2
+
+                           py-3.5 px-5
+
+                           rounded-xl
+
+                           bg-indigo-600
+                           hover:bg-indigo-700
+
+                           active:bg-indigo-800
+
+                           text-white
+                           font-semibold
+
+                           shadow-lg
+                           shadow-indigo-600/20
+
+                           transition-all
+                           duration-200
+
+                           hover:-translate-y-0.5
+                           active:translate-y-0"
+
+                >
+
+                    <!-- Login icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.8"
+                         stroke="currentColor"
+                         class="w-5 h-5">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M15.75 9V5.25
+                                 A2.25 2.25 0 0 0 13.5 3
+                                 h-6A2.25 2.25 0 0 0 5.25 5.25v13.5
+                                 A2.25 2.25 0 0 0 7.5 21h6
+                                 a2.25 2.25 0 0 0 2.25-2.25V15
+                                 M18 15l3-3m0 0-3-3m3 3H9"/>
+
+                    </svg>
+
+                    <span>Kirish</span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Footer -->
+            <div class="mt-8 pt-6 border-t border-slate-200">
+
+                <div class="flex items-center justify-center gap-2
+                            text-sm text-slate-400">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke-width="1.7"
+                         stroke="currentColor"
+                         class="w-4 h-4">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 3 4.5 6v5.25
+                                 c0 4.65 3.15 8.925 7.5 10.5
+                                 4.35-1.575 7.5-5.85 7.5-10.5V6L12 3Z"/>
+
+                    </svg>
+
+                    <span>Himoyalangan administrator paneli</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+```

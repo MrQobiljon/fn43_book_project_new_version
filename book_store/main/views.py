@@ -2,15 +2,31 @@ import json
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required, permission_required
+from django.http import JsonResponse, HttpRequest
 from django.views.decorators.http import require_POST
 
-from .models import Category, Book, Comment
+from .models import Category, Book, Comment, Favorite
 from .forms import BookForm, CommentForm
 
 
-def all_books(request):
+def save_favorite_book(request):
+    if request.user.is_authenticated:
+        favorite_id = request.GET.get('favorite')
+        book = get_object_or_404(Book, pk=favorite_id)
+        obj, created = Favorite.objects.get_or_create(book=book, user=request.user)
+        if not created:
+            obj.delete()
+    else:
+        messages.warning(request, "Tanlash uchun login qiling")
+        return redirect('login')
+
+
+def all_books(request: HttpRequest):
+
+    if request.GET.get("favorite"):
+        save_favorite_book(request)
+
     categories = Category.objects.all()
     books = Book.objects.filter(published=True)
     context = {
@@ -33,6 +49,7 @@ def books_by_category(request, category_id):
     return render(request, 'main/all_books.html', context)
 
 
+@permission_required('main.view_book')
 def book_detail(request, book_id):
     book = get_object_or_404(Book, pk=book_id, published=True)
     comments = Comment.objects.filter(book_id=book_id).order_by('-created')
@@ -45,7 +62,8 @@ def book_detail(request, book_id):
     return render(request, "main/book_detail.html", context)
 
 
-@login_required(login_url='all_books')
+@permission_required('main.add_book')
+@login_required(login_url='login')
 def create_book(request):
     if request.method == "POST":
         form = BookForm(data=request.POST, files=request.FILES)
@@ -62,7 +80,8 @@ def create_book(request):
     return render(request, "main/book-form.html", context)
 
 
-@login_required(login_url='all_books')
+@permission_required('main.change_book')
+@login_required(login_url='login')
 def update_book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     if request.method == "POST":
@@ -80,7 +99,8 @@ def update_book(request, book_id):
     return render(request, "main/book-form.html", context)
 
 
-@login_required(login_url="all_books")
+@permission_required('main.delete_book', login_url='login')
+@login_required(login_url="login")
 def delete_book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     if request.method == 'POST':
