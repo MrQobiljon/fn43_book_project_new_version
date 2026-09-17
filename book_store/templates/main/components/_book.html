@@ -1,7 +1,11 @@
 <div class="col">
     <div class="book-card">
         <div class="book-cover-wrapper">
-            <a href="?favorite={{ book.id }}" class="wishlist-btn"><i class="fa-regular fa-bookmark"></i></a>
+            <a href="?favorite={{ book.id }}" class="{% if book.is_favorite %}wishlist-btn2{% else %}wishlist-btn{% endif %}">
+                <i class="fa-regular fa-bookmark">
+
+                </i>
+            </a>
             {% if book.image %}
             <img src="{{ book.image.url }}" alt="Book">
             {% else %}

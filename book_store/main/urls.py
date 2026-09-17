@@ -1,7 +1,7 @@
 from django.urls import path
 
 from .views import (all_books, books_by_category, book_detail, create_book, update_book, delete_book,
-                    about, contact,
+                    about, contact, books_by_favorite,
                     save_comment, update_comment, delete_comment)
 
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('book/<int:book_id>/delete/', delete_book, name="book_delete"),
 
     path('category/<int:category_id>/', books_by_category, name='by_category'),
+    path('books/', books_by_favorite, name='by_favorite'),
 
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),

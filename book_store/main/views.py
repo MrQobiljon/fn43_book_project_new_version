@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required, permission_required
 from django.http import JsonResponse, HttpRequest
 from django.views.decorators.http import require_POST
+from django.db.models import Exists, OuterRef
+from django.core.paginator import Paginator
+
 
 from .models import Category, Book, Comment, Favorite
 from .forms import BookForm, CommentForm
@@ -23,15 +26,30 @@ def save_favorite_book(request):
 
 
 def all_books(request: HttpRequest):
-
     if request.GET.get("favorite"):
         save_favorite_book(request)
 
+    if request.user.is_authenticated:
+        favorite = Favorite.objects.filter(
+            book=OuterRef("pk"),
+            user=request.user
+        )
+
+        books = Book.objects.annotate(
+            is_favorite=Exists(favorite)
+        )
+    else:
+        books = Book.objects.filter(published=True)
+
+    p = Paginator(books, 2)
+    page = p.page(request.GET.get("page", 1))
+
     categories = Category.objects.all()
-    books = Book.objects.filter(published=True)
+
     context = {
         'categories': categories,
-        'books': books,
+        'books': page.object_list,
+        "page": page,
         "title": "Asosiy sahifa"
     }
     return render(request, 'main/all_books.html', context)
@@ -39,12 +57,47 @@ def all_books(request: HttpRequest):
 
 def books_by_category(request, category_id):
     category = get_object_or_404(Category, pk=category_id)
-    books = Book.objects.filter(category_id=category_id, published=True)
+
+    if request.GET.get("favorite"):
+        save_favorite_book(request)
+
+    favorite = Favorite.objects.filter(
+        book=OuterRef("pk"),
+        user=request.user
+    )
+
+    books = Book.objects.annotate(
+        is_favorite=Exists(favorite)
+    ).filter(category_id=category_id, published=True)
+
     categories = Category.objects.all()
     context = {
         'categories': categories,
         'books': books,
         'title': category.name
+    }
+    return render(request, 'main/all_books.html', context)
+
+
+@login_required()
+def books_by_favorite(request):
+    categories = Category.objects.all()
+
+    if request.GET.get("favorite"):
+        save_favorite_book(request)
+
+    favorite = Favorite.objects.filter(
+        book=OuterRef("pk"),
+        user=request.user
+    )
+
+    books = Book.objects.annotate(
+        is_favorite=Exists(favorite)
+    ).filter(is_favorite=True, published=True)
+
+    context = {
+        'categories': categories,
+        'books': books,
     }
     return render(request, 'main/all_books.html', context)
 
