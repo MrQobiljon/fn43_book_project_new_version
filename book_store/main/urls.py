@@ -4,6 +4,8 @@ from .views import (all_books, books_by_category, book_detail, create_book, upda
                     about, contact, books_by_favorite,
                     save_comment, update_comment, delete_comment)
 
+from .test_view import book_test
+
 
 urlpatterns = [
     path('', all_books, name='all_books'),
@@ -21,4 +23,6 @@ urlpatterns = [
     path('add/comment/<int:book_id>/', save_comment, name='save_comment'),
     path('update/comment/<int:comment_id>/', update_comment, name='update_comment'),
     path('delete/comment/<int:comment_id>/', delete_comment, name='delete_comment'),
+
+    path('test/', book_test),
 ]

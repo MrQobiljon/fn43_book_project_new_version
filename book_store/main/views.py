@@ -41,7 +41,7 @@ def all_books(request: HttpRequest):
     else:
         books = Book.objects.filter(published=True)
 
-    p = Paginator(books, 2)
+    p = Paginator(books, 6)
     page = p.page(request.GET.get("page", 1))
 
     categories = Category.objects.all()

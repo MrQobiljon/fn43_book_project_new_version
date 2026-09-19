@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
-from .forms import LoginForm, RegisterForm
+from .forms import LoginForm, RegisterForm, ProfileForm
 
 
 def login_view(request):
@@ -42,5 +43,11 @@ def logout_view(request):
     return redirect('login')
 
 
+@login_required
 def profile(request):
+    if request.method == "POST":
+        form = ProfileForm(data=request.POST, files=request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile ma'lumotlari o'zgartirilidi!")
     return render(request, "user/profile.html")
