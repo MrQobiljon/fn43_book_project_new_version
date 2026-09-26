@@ -37,7 +37,7 @@ def all_books(request: HttpRequest):
 
         books = Book.objects.annotate(
             is_favorite=Exists(favorite)
-        )
+        ).filter(published=True)
     else:
         books = Book.objects.filter(published=True)
 

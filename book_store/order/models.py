@@ -16,10 +16,20 @@ class Order(models.Model):
     status = models.CharField(choices=STATUS, default="tan")
     address = models.CharField(max_length=255)
 
+    def total_count(self):
+        return sum([product.quantity for product in self.products.all()])
+
+    def total_price(self):
+        return sum([product.quantity * product.product.price for product in self.products.all()])
+
 
 class OrderProduct(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product = models.ForeignKey("main.Book", on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="products")
+    product = models.ForeignKey("main.Book", on_delete=models.CASCADE, related_name="books")
     quantity = models.SmallIntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def order_product_price(self):
+        return self.product.price * self.quantity
 
